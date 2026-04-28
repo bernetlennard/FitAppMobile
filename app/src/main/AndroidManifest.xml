@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FitAppMobile">
         <activity
+            android:name=".calculator.ResultActivity"
+            android:exported="false" />
+        <activity
+            android:name=".calculator.EntryActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

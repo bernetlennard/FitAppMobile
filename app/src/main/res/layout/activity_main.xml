@@ -20,7 +20,7 @@
         app:layout_constraintVertical_bias="0.101" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textHeight"
         android:layout_width="313dp"
         android:layout_height="65dp"
         android:text="Herzlich Willkommen bei der &quot;FitApp&quot;, hier kann man seinen BMI berechnen!"
@@ -43,5 +43,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.4"
         app:srcCompat="@drawable/bmi_formel" />
+
+    <Button
+        android:id="@+id/buttonStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Berechnung Starten"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.639" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
