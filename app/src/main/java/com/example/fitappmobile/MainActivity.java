@@ -2,8 +2,13 @@ package com.example.fitappmobile;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,5 +31,27 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+
+        // activity für liste
+        var fruitList = (ListView) findViewById(R.id.textViewResult);
+        var fruitValues = new String[] {
+                "Apple", "Banana"
+        };
+
+        var adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, fruitValues);
+        fruitList.setAdapter(adapter);
+        fruitList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+            }
+        });
+
+
+
     }
+
+
+
 }
