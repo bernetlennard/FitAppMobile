@@ -2,14 +2,18 @@ package com.example.fitappmobile.calculator;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.fitappmobile.MainActivity;
 import com.example.fitappmobile.R;
+import com.example.fitappmobile.util.MenuImpl;
 
-public class EntryActivity extends AppCompatActivity {
+public class EntryActivity extends MenuImpl {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

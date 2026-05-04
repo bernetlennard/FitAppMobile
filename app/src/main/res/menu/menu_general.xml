@@ -3,6 +3,18 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/menuItemMainActivity"
-        android:title="Main" />
+        android:id="@+id/HomeActivity"
+        android:title="@string/home" />
+    <item
+        android:id="@+id/CalculatorActivity"
+        android:title="@string/calculator" />
+    <item
+        android:id="@+id/RatingActivity"
+        android:title="@string/rating" />
+    <item
+        android:id="@+id/HistoryActivity"
+        android:title="@string/history" />
+    <item
+        android:id="@+id/SettingsActivity"
+        android:title="@string/settings" />
 </menu>

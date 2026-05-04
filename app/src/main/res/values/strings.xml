@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">FitAppMobile</string>
+    <string name="app_name">Fit App</string>
+    <string name="home">Home</string>
+    <string name="calculator">Calculator</string>
+    <string name="rating">Rating</string>
+    <string name="history">History</string>
+    <string name="settings">Settings</string>
 </resources>

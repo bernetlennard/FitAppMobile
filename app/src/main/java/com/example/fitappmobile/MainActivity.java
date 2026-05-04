@@ -17,8 +17,9 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.fitappmobile.calculator.EntryActivity;
+import com.example.fitappmobile.util.MenuImpl;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends MenuImpl {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,28 +31,5 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, EntryActivity.class);
             startActivity(intent);
         });
-
-
-        // activity für liste
-        var fruitList = (ListView) findViewById(R.id.textViewResult);
-        var fruitValues = new String[] {
-                "Apple", "Banana"
-        };
-
-        var adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, fruitValues);
-        fruitList.setAdapter(adapter);
-        fruitList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-            }
-        });
-
-
-
     }
-
-
-
 }

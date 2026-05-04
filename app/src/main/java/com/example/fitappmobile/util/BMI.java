@@ -1,6 +1,16 @@
 package com.example.fitappmobile.util;
 
 public class BMI {
+
+    public static String UNTERGEWICHTIG = "Untergewichtig";
+    public static String NORMALGEWICHTIG = "Normalgewichtig";
+    public static String UEBERGEWICHTIG = "Übergewichtig";
+    public static String FETTLEIBIG = "Fettleibig";
+
+    public static String[] legendValues = new String[]{
+            UNTERGEWICHTIG, NORMALGEWICHTIG, UEBERGEWICHTIG, FETTLEIBIG
+    };
+
     // Statische Methode zur Berechnung des BMI: Gewicht / (Grösse in m * Grösse in m)
     public static double calculate(double weightKg, double heightCm) {
         if (heightCm <= 0) return 0;

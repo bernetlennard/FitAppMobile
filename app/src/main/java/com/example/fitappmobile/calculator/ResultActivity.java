@@ -28,23 +28,4 @@ public class ResultActivity extends AppCompatActivity {
         textViewResult.setText(String.format("Dein BMI: %.2f", result));
     }
 
-    // für menu activity
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu){
-        super.onCreateOptionsMenu(menu);
-        getMenuInflater().inflate(R.menu.menu_general, menu);
-        menu.findItem()
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem menuItem){
-        if(menuItem.getItemId() == R.id.menuItemMainActivity){
-            startActivity(new Intent(this, MainActivity.class));
-        } else{
-            super.onOptionsItemSelected(menuItem);
-        }
-        return true;
-    }
-
 }
