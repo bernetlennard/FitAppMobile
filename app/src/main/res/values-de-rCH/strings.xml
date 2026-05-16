@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="height_hint">Grösse</string>
+    <string name="height_label">Grösse (in CM):</string>
+    <string name="spec_moderate">mässig</string>
+    <string name="spec_obese_i">mässig (Grad I)</string>
+</resources>

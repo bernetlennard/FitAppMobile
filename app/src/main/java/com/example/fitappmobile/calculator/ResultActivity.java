@@ -27,14 +27,14 @@ public class ResultActivity extends MenuImpl {
         double height = getIntent().getDoubleExtra("HEIGHT", 0);
 
         double bmiValue = BMI.calculate(weight, height);
-        textViewResult.setText(String.format("Dein BMI: %.2f", bmiValue));
+        textViewResult.setText(getString(R.string.bmi_format, bmiValue));
 
-        String category = BMI.getCategory(bmiValue);
-        textViewCategory.setText(category);
+        int categoryResId = BMI.getCategory(bmiValue);
+        textViewCategory.setText(categoryResId);
 
         buttonDetails.setOnClickListener(v -> {
             Intent intent = new Intent(ResultActivity.this, DetailActivity.class);
-            intent.putExtra("legend-category", category);
+            intent.putExtra("legend-category-res", categoryResId);
             startActivity(intent);
         });
     }

@@ -1,8 +1,42 @@
 <resources>
     <string name="app_name">Fit App</string>
+
     <string name="home">Home</string>
     <string name="calculator">Calculator</string>
-    <string name="rating">Rating</string>
+    <string name="welcome_text">Welcome to the \"FitApp\", here you can calculate your BMI!</string>
+    <string name="start_calculation">Start calculation</string>
+
+    <string name="height_hint">Height</string>
+    <string name="weight_hint">Weight</string>
+    <string name="height_label">Height (in CM):</string>
+    <string name="weight_label">Weight (in KG):</string>
+    <string name="calculate_button">Calculate</string>
+
+    <string name="bmi_result_label">BMI Result:</string>
+    <string name="show_details">Show details</string>
+
+    <string name="rating">Legend</string>
     <string name="history">History</string>
     <string name="settings">Settings</string>
+
+    <string name="category">Category</string>
+    <string name="specific">Specific</string>
+    <string name="minimal">Minimal</string>
+    <string name="maximal">Maximal</string>
+    <string name="bmi_format">Your BMI: %.2f</string>
+    <string name="error">Error</string>
+    <string name="less_than_format">&lt; %s</string>
+
+    <string name="cat_underweight">Underweight</string>
+    <string name="cat_normal">Normal weight</string>
+    <string name="cat_overweight">Overweight</string>
+    <string name="cat_obese">Obese</string>
+
+    <string name="spec_very_severe">very severe</string>
+    <string name="spec_severe">severe</string>
+    <string name="spec_moderate">moderate</string>
+    <string name="spec_mild">mild</string>
+    <string name="spec_obese_i">moderate (Class I)</string>
+    <string name="spec_obese_ii">severe (Class II)</string>
+    <string name="spec_obese_iii">very severe (Class III)</string>
 </resources>

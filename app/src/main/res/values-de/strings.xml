@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Fit App</string>
+
+    <string name="home">Home</string>
+    <string name="calculator">Rechner</string>
+    <string name="welcome_text">Herzlich Willkommen bei der \"FitApp\", hier kann man seinen BMI berechnen!</string>
+    <string name="start_calculation">Berechnung Starten</string>
+
+    <string name="height_hint">Größe</string>
+    <string name="weight_hint">Gewicht</string>
+    <string name="height_label">Größe (in CM):</string>
+    <string name="weight_label">Gewicht (in KG):</string>
+    <string name="calculate_button">Berechnen</string>
+    <string name="bmi_result_label">BMI Ergebnis:</string>
+    <string name="show_details">Details anzeigen</string>
+
+    <string name="rating">Legende</string>
+    <string name="history">Verlauf</string>
+    <string name="settings">Einstellungen</string>
+
+    <string name="category">Kategorie</string>
+    <string name="specific">spezifisch</string>
+    <string name="minimal">minimal</string>
+    <string name="maximal">maximal</string>
+    <string name="bmi_format">Dein BMI: %.2f</string>
+    <string name="error">Fehler</string>
+    <string name="less_than_format">&lt; %s</string>
+
+    <string name="cat_underweight">Untergewichtig</string>
+    <string name="cat_normal">Normalgewichtig</string>
+    <string name="cat_overweight">Übergewichtig</string>
+    <string name="cat_obese">Fettleibig</string>
+
+    <string name="spec_very_severe">sehr stark</string>
+    <string name="spec_severe">stark</string>
+    <string name="spec_moderate">mäßig</string>
+    <string name="spec_mild">leicht</string>
+    <string name="spec_obese_i">mäßig (Grad I)</string>
+    <string name="spec_obese_ii">stark (Grad II)</string>
+    <string name="spec_obese_iii">sehr stark (Grad III)</string>
+</resources>

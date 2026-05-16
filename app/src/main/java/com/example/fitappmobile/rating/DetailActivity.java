@@ -25,18 +25,18 @@ public class DetailActivity extends MenuImpl {
         TextView textViewTitle = findViewById(R.id.textViewDetailTitle);
         TableLayout tableLayout = findViewById(R.id.tableLayoutDetails);
 
-        String legendCategory = getIntent().getStringExtra("legend-category");
-        if (legendCategory != null) {
-            textViewTitle.setText(legendCategory);
+        int categoryResId = getIntent().getIntExtra("legend-category-res", 0);
+        if (categoryResId != 0) {
+            textViewTitle.setText(categoryResId);
             
-            String[][] details = null;
-            if (legendCategory.equals(UNTERGEWICHTIG)) {
+            BMI.Detail[] details = null;
+            if (categoryResId == UNTERGEWICHTIG) {
                 details = BMI.UNTERGEWICHTIG_DETAILS;
-            } else if (legendCategory.equals(NORMALGEWICHTIG)) {
+            } else if (categoryResId == NORMALGEWICHTIG) {
                 details = BMI.NORMALGEWICHTIG_DETAILS;
-            } else if (legendCategory.equals(UEBERGEWICHTIG)) {
+            } else if (categoryResId == UEBERGEWICHTIG) {
                 details = BMI.UEBERGEWICHTIG_DETAILS;
-            } else if (legendCategory.equals(FETTLEIBIG)) {
+            } else if (categoryResId == FETTLEIBIG) {
                 details = BMI.FETTLEIBIG_DETAILS;
             }
 
@@ -44,33 +44,37 @@ public class DetailActivity extends MenuImpl {
                 populateTable(tableLayout, details);
             }
         } else {
-            textViewTitle.setText("Fehler");
+            textViewTitle.setText(R.string.error);
         }
     }
 
-    private void populateTable(TableLayout tableLayout, String[][] details) {
-        for (String[] rowData : details) {
+    private void populateTable(TableLayout tableLayout, BMI.Detail[] details) {
+        for (BMI.Detail rowData : details) {
             TableRow row = new TableRow(this);
             row.setPadding(0, 16, 0, 16);
 
             // Spezifisch
             TextView spec = new TextView(this);
-            spec.setText(rowData[0]);
+            if (rowData.specResId != 0) {
+                spec.setText(rowData.specResId);
+            } else {
+                spec.setText("");
+            }
             spec.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 1f));
             row.addView(spec);
 
             // Minimal
             TextView min = new TextView(this);
-            min.setText(rowData[1]);
+            min.setText(rowData.min);
             min.setGravity(Gravity.CENTER);
             min.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 1f));
             row.addView(min);
 
             // Maximal
             TextView max = new TextView(this);
-            String maxValue = rowData[2];
+            String maxValue = rowData.max;
             if (!maxValue.isEmpty()) {
-                max.setText("< " + maxValue);
+                max.setText(getString(R.string.less_than_format, maxValue));
             } else {
                 max.setText("");
             }

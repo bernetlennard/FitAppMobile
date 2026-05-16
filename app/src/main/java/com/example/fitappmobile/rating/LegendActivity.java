@@ -4,15 +4,14 @@ import static com.example.fitappmobile.util.BMI.legendValues;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.example.fitappmobile.MainActivity;
 import com.example.fitappmobile.R;
-import com.example.fitappmobile.calculator.EntryActivity;
 import com.example.fitappmobile.util.MenuImpl;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class LegendActivity extends MenuImpl {
 
@@ -23,11 +22,16 @@ public class LegendActivity extends MenuImpl {
 
         ListView legendList = findViewById(R.id.listViewLegend);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, legendValues);
+        List<String> translatedValues = new ArrayList<>();
+        for (int resId : legendValues) {
+            translatedValues.add(getString(resId));
+        }
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, translatedValues);
         legendList.setAdapter(adapter);
         legendList.setOnItemClickListener((adapterView, view, i, l) -> {
             Intent intent = new Intent(LegendActivity.this, DetailActivity.class);
-            intent.putExtra("legend-category", legendValues[i]);
+            intent.putExtra("legend-category-res", legendValues[i]);
             startActivity(intent);
         });
 
