@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FitAppMobile">
         <activity
+            android:name=".config.UsersActivity"
+            android:exported="false" />
+        <activity
             android:name=".rating.DetailActivity"
             android:exported="false" />
         <activity
