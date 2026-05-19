@@ -11,7 +11,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.example.fitappmobile.R;
+import com.example.fitappmobile.util.DatabaseConnection;
 import com.example.fitappmobile.util.MenuImpl;
+import com.example.fitappmobile.util.repository.UserRepository;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -25,15 +27,18 @@ public class UsersActivity extends MenuImpl {
     private ArrayAdapter<String> adapter;
     private SharedPreferences prefs;
 
+    private UserRepository userRepository;
     private static final String PREFS_NAME = "FitAppPrefs";
     private static final String KEY_CURRENT_USER = "currentUser";
-    private static final String KEY_USER_LIST = "userList";
     private static final String DEFAULT_USER = "<anonymous>";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_users);
+
+        DatabaseConnection db = DatabaseConnection.getInstance(this);
+        userRepository = new UserRepository(db);
 
         spinnerUsers = findViewById(R.id.spinner_users);
         Button btnNewUser = findViewById(R.id.btn_new_user);
@@ -68,18 +73,12 @@ public class UsersActivity extends MenuImpl {
     }
 
     private void loadUsers() {
-        Set<String> savedUsers = prefs.getStringSet(KEY_USER_LIST, new HashSet<>());
-        userList = new ArrayList<>(savedUsers);
+        userList = userRepository.selectAllUsers();
 
         if (userList.isEmpty()) {
             userList.add(DEFAULT_USER);
-            saveUserList();
+            userRepository.insertUser(DEFAULT_USER, "", "", "");
         }
-    }
-
-    private void saveUserList() {
-        Set<String> set = new HashSet<>(userList);
-        prefs.edit().putStringSet(KEY_USER_LIST, set).apply();
     }
 
     private void showNewUserDialog() {
@@ -93,8 +92,8 @@ public class UsersActivity extends MenuImpl {
         builder.setPositiveButton(R.string.add, (dialog, which) -> {
             String newUsername = input.getText().toString().trim();
             if (!newUsername.isEmpty() && !userList.contains(newUsername)) {
+                userRepository.insertUser(newUsername, "", "", "");
                 userList.add(newUsername);
-                saveUserList();
                 adapter.notifyDataSetChanged();
 
                 spinnerUsers.setSelection(userList.size() - 1);
